@@ -1,0 +1,111 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Expense Tracker Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- PROFILE SELECTOR -->
+  <div id="profileSection" class="section">
+    <h1>Select Profile</h1>
+    <div id="profileList" class="profile-list"></div>
+  </div>
+
+  <!-- TRACKER -->
+  <div id="trackerSection" class="section hidden">
+    <header class="tracker-header">
+      <button id="backButton" class="icon-btn">←</button>
+      <h2 id="profileName"></h2>
+    </header>
+
+    <div id="balance" class="balance positive">Balance: ₹0.00</div>
+
+    <div class="input-group">
+      <input type="number" id="amount" placeholder="Amount" step="0.01" class="input"/>
+      <select id="type" class="input">
+        <option value="credit">Credit (+)</option>
+        <option value="debit">Debit (−)</option>
+      </select>
+
+      <select id="descriptionSelect" class="input">
+        <option value="">Select Description</option>
+        <option value="Food">Food</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Grocery">Grocery</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Other">Other</option>
+      </select>
+      <input type="text" id="descriptionCustom" placeholder="Custom Description" class="input hidden"/>
+
+      <input type="file" id="billAttachment" class="input" accept="image/*"/>
+      <img id="attachmentPreview" class="attachment-preview hidden" alt="Attachment Preview"/>
+
+      <button id="addButton" class="btn">Add</button>
+      <button id="toggleHistoryBtn" class="btn secondary">Show History</button>
+    </div>
+
+    <div id="history" class="history hidden">
+      <div class="filters">
+        <button id="filterAllBtn" class="filter-btn active">All</button>
+        <button id="filterCreditBtn" class="filter-btn">Credit</button>
+        <button id="filterDebitBtn" class="filter-btn">Debit</button>
+      </div>
+      <div id="historyContent" class="history-list"></div>
+    </div>
+  </div>
+
+  <!-- Floating Profile Manager -->
+  <button id="profileFab" class="fab">＋</button>
+
+  <!-- Profile Manager Modal -->
+  <div id="profileModal" class="modal-overlay hidden">
+    <div class="modal-content modal-profile-edit">
+      <h3>Manage Profiles</h3>
+      <button id="addProfileModalBtn" class="edit-btn secondary">Add New Profile</button>
+      <button id="editProfileModalBtn" class="edit-btn">Edit Current Profile</button>
+      <button id="deleteProfileModalBtn" class="edit-btn">Delete Current Profile</button>
+      <button id="recycleBinBtn" class="edit-btn secondary">Recycle Bin</button>
+      <button id="closeProfileModalBtn" class="edit-btn">Close</button>
+    </div>
+  </div>
+
+  <!-- Proof Modal -->
+  <div id="proofModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <img id="proofImage" class="proof-image" alt="Proof of Payment"/>
+      <button id="saveProofBtn" class="history-edit-btn">Save to Gallery</button>
+      <button id="editProofBtn" class="history-edit-btn">Edit Proof</button>
+      <button id="closeProofModalBtn" class="history-edit-btn">Close</button>
+    </div>
+  </div>
+
+  <!-- Custom Input Modal -->
+  <div id="customModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <h3 id="customModalTitle"></h3>
+      <input type="text" id="customModalInput" class="input" placeholder="Type here..." />
+      <div class="modal-buttons">
+        <button id="customModalConfirmBtn" class="btn">Confirm</button>
+        <button id="customModalCancelBtn" class="btn secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recycle Bin Modal -->
+  <div id="recycleBinModal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <h3>Recycle Bin</h3>
+      <div id="recycleList" class="profile-list"></div>
+      <button id="closeRecycleModalBtn" class="edit-btn">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
